@@ -1,0 +1,39 @@
+query GetProjectDetailsQuery($username: String!) {
+  user(username: $username) {
+    projectMemberships {
+      nodes {
+        project {
+          pipelines(first: 1) {
+            nodes {
+              test_job: job(name: "test") {
+                coverage
+                id
+                name
+              }
+              pylint_job: job(name: "pylint") {
+                coverage
+                id
+                name
+              }
+              bandit_job: job(name: "bandit") {
+                coverage
+                id
+                name
+              }
+              safety_job: job(name: "safety") {
+                coverage
+                id
+                name
+              }
+            }
+          }
+          mergeRequests(state: opened) {
+            count
+          }
+          id
+          name
+        }
+      }
+    }
+  }
+}

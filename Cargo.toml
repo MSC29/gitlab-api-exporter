@@ -1,0 +1,28 @@
+[package]
+name = "gitlab-api-exporter"
+version = "1.0.0"
+edition = "2018"
+
+[[bin]]
+name = "gitlab-api-exporter"
+path = "src/main.rs"
+
+[dependencies]
+log = "~0.4.0"
+env_logger = "^0.5"
+dotenv = "~0.15"
+anyhow = "1.0"
+graphql_client = { version = "~0.9" }
+serde = "^1.0"
+reqwest = { version = "^0.11", features = ["json", "blocking"] }
+prettytable-rs = "^0.7"
+clap = { version = "^3.0", features = ["derive"] }
+regex = "1"
+influxdb = { version = "0.5.2", features = ["derive"] }
+chrono = { version = "0.4.19", features = ["serde", "clock"], default-features = false }
+futures = "0.3.21"
+tokio-stream = "0.1"
+tokio = { version = "1", features = ["full"] }
+serde_json = "1.0.81"
+
+[dev-dependencies]
